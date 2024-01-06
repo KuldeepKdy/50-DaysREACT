@@ -1,31 +1,39 @@
-import React from "react";
-import { apiUrl, filterData } from "./data";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Filter from "./components/Filter";
 import Cards from "./components/Cards";
-import { useEffect } from "react";
-import { useState } from "react";
- 
+import Spinner from "./components/Spinner";
+import { apiUrl, filterData } from "./data";
+import { toast } from "react-toastify";
+
 const App = () => {
-  const [courses, setCourses] = useState(null);
+  const [courses, setCourses] = useState();
+  const [loading, setLoading] = useState(true);
+  async function fetchData() {
+    setLoading(true);
+    try {
+      let response = await fetch(apiUrl);
+      let output = await response.json();
+      setCourses(output.data);
+    } catch (error) {
+      toast.error("Network me koi dekt h");
+    }
+    setLoading(false);
+  }
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(apiUrl);
-        const data = await res.json();
-        // console.log(data);
-        setCourses(data.data);
-      } catch (error) {
-        toast.error("something went wrong");
-      }
-    };
-  });
+    fetchData();
+  }, []);
 
   return (
     <div>
-      <Navbar />
-      <Filter filterData={filterData} />
-      <Cards courses={courses} />
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <Filter filterData={filterData} />
+      </div>
+      <div>{loading ? <Spinner /> : <Cards courses={courses} />}</div>
     </div>
   );
 };
