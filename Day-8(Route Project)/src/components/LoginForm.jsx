@@ -20,14 +20,17 @@ const LoginForm = ({ setIsLoggedIn }) => {
   function submitHandler(event) {
     event.preventDefault();
     setIsLoggedIn(true);
-    toast.success("Logged In"); 
+    toast.success("Logged In");
     navigate("/Dashboard");
   }
   return (
-    <form onSubmit={submitHandler}>
-      <label>
-        <p>
-          Email Adress <sup>*</sup>
+    <form
+      onSubmit={submitHandler}
+      className="flex flex-col w-full gap-y-4 mt-6"
+    >
+      <label className="w-full">
+        <p className="text-[0.875rem] text-gray-600 mb-1 leading-[1.375rem]">
+          Email Adress <sup className="text-pink-200">*</sup>
         </p>
         <input
           required
@@ -36,11 +39,12 @@ const LoginForm = ({ setIsLoggedIn }) => {
           onChange={changeHandler}
           placeholder="Enter email Account"
           name="email"
+          className="bg-gray-700 rounded-[0.5rem] text-gray-500 w-full p-[12px] "
         />
       </label>
-      <label>
-        <p>
-          Password <sup>*</sup>
+      <label className="w-full relative">
+        <p className="text-[0.875rem] text-gray-600 mb-1 leading-[1.375rem]">
+          Password <sup className="text-pink-200">*</sup>
         </p>
         <input
           required
@@ -49,9 +53,11 @@ const LoginForm = ({ setIsLoggedIn }) => {
           onChange={changeHandler}
           placeholder="Enter Password"
           name="password"
+          className="bg-gray-700 rounded-[0.5rem] text-gray-500 w-full p-[12px] "
         />
 
         <span
+          className="absolute right-3  top-[38px] cursor-pointer text-white text-[22px]"
           onClick={() => {
             setShowPassword((prev) => !prev);
           }}
@@ -59,11 +65,15 @@ const LoginForm = ({ setIsLoggedIn }) => {
           {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
         </span>
         <Link to="#">
-          <p>Forget Password</p>
+          <p className="text-xs mt-1 text-blue-300 max-w-max ml-auto ">
+            Forget Password
+          </p>
         </Link>
       </label>
 
-      <button>Sign in</button>
+      <button className="bg-yellow-400 rounded-[8px] text-black font-medium px-[12px] py-[8px] mt-6">
+        Sign in
+      </button>
     </form>
   );
 };
