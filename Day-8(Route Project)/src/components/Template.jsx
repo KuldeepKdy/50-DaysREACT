@@ -12,7 +12,11 @@ const Template = ({ title, desc1, desc2, image, formtype, setIsLoggedIn }) => {
           <span>{desc1}</span>
           <span>{desc2}</span>
         </p>
-        {formtype === "Signup" ? <SignupForm /> : <LoginForm />}
+        {formtype === "Signup" ? (
+          <SignupForm setIsLoggedIn={setIsLoggedIn} />
+        ) : (
+          <LoginForm setIsLoggedIn={setIsLoggedIn} />
+        )}
         <div>
           <div></div>
           <p>OR</p>

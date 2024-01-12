@@ -33,7 +33,7 @@ const Navbar = (props) => {
         )}
         {!isLoggedIn && (
           <Link to="/Signup">
-            <button>Sign Up</button>  
+            <button>Sign Up</button>
           </Link>
         )}
         {isLoggedIn && (
@@ -41,7 +41,7 @@ const Navbar = (props) => {
             <button
               onClick={() => {
                 setIsLoggedIn(false);
-                toast("Logged Out");
+                toast.success("Logged Out");
               }}
             >
               Log out
