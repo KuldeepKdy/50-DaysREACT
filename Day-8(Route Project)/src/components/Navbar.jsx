@@ -43,6 +43,7 @@ const Navbar = (props) => {
         {isLoggedIn && (
           <Link to="/">
             <button
+              className="bg-gray-800 text-gray-100 py-[6px] px-[12px] rounded-[8px] border-b border-t"
               onClick={() => {
                 setIsLoggedIn(false);
                 toast.success("Logged Out");
@@ -54,7 +55,12 @@ const Navbar = (props) => {
         )}
         {isLoggedIn && (
           <Link>
-            <button to="/Dashboard">Dashboard</button>
+            <button
+              className="bg-gray-800 text-gray-100 py-[6px] px-[12px] rounded-[8px] border-b border-t"
+              to="/Dashboard"
+            >
+              Dashboard
+            </button>
           </Link>
         )}
       </div>
