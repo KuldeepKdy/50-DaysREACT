@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    text-transform: capitalize;
+}
+
+h1 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar {
+    background-color: lightblue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem 0;
+    width: 15rem;
+    height: 100vh;
+    transition: all ease-out 0.4s;
+
+}
+
+.newsidebar {
+    background-color: lightblue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem 0;
+    width: 15rem;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: all ease-out 0.4s;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 31.42px;
+    color: green;
+    padding: 0 0 0 1rem;
+}
+
+.profileContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3rem 0 0 0;
+}
+
+.profileContaine {
+    padding: 0 0 0 1rem;
+}
+
+.profileContainer p {
+    font-size: 13.9px;
+    color: darkolivegreen;
+    text-transform: lowercase;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.name {
+    font-size: 16.7px;
+    color: darkgreen;
+    text-transform: capitalize;
+}
+
+.burgerContainer {
+    position: absolute;
+    right: 0;
+    font-size: 1.8rem;
+    padding: 0.5rem 0.7rem;
+    color: whitesmoke;
+    background-color: black;
+    border-top-left-radius: 1rem;
+    transition: all ease-out 0.4s;
+}
+
+.burgerContainertrue {
+    position: absolute;
+    right: -1.6rem;
+    font-size: 1.8rem;
+    padding: 0.5rem 0.7rem;
+    color: whitesmoke;
+    background-color: black;
+    border-top-left-radius: 1rem;
+    transition: all ease-out 0.4s;
+}
