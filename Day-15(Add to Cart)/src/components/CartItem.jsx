@@ -2,14 +2,14 @@ import React from "react";
 import { FcDeleteDatabase } from "react-icons/fc";
 import { useDispatch } from "react-redux";
 import { remove } from "../redux/Slices/CartSlice";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const CartItem = ({ item, itemIndex }) => {
   const dispatch = useDispatch();
 
   const removeFromCart = () => {
     dispatch(remove(item.id));
-    toast.sucess("item Removed");
+    // toast.success("item Removed");
   };
   return (
     <div>

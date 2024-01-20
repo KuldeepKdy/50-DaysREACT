@@ -7,12 +7,12 @@ const Product = ({ post }) => {
   const dispatch = useDispatch();
   const addToCart = () => {
     dispatch(add(post));
-    toast.sucess("Item added to cart");
+    // toast.success("Item added to cart");
   };
 
   const removeFromCart = () => {
     dispatch(remove(post.id));
-    toast.sucess("Item removed from Cart");
+    // toast.success("Item removed from Cart");
   };
 
   return (

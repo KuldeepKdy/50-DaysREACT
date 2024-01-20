@@ -5,13 +5,13 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/Store.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { Toaster } from "react";
+// import { Toaster } from "react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
       <App />
-      <Toaster />
+      {/* <Toaster /> */}
     </Provider>
   </BrowserRouter>
 );
