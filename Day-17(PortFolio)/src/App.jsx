@@ -1,12 +1,17 @@
-import React from 'react'
-import NavBar from './components/NavBar'
+import React from "react";
+import NavBar from "./components/NavBar";
+import Home from "./components/Home";
+import SocialLinks from "./components/SocialLinks";
 
 const App = () => {
   return (
     <div>
-      <NavBar/>
-      </div>
-  )
-}
+      <NavBar />
+      <Home />
 
-export default App
+      <SocialLinks />
+    </div>
+  );
+};
+
+export default App;
