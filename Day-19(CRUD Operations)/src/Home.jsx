@@ -1,10 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { deleteUser } from "./redux/slices/UserReducer";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
-  
+  const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch(deleteUser({ id: id }));
+  };
+
   return (
     <div className="w-full h-screen flex flex-col gap-5">
       <h2>Crud App With JSON Server</h2>
@@ -31,10 +36,16 @@ const Home = () => {
               <td>{name}</td>
               <td>{email}</td>
               <td className=" flex gap-2">
-                <button className="p-3 rounded-md bg-black text-white">
+                <Link
+                  to={`/edit/${id}`}
+                  className="p-3 rounded-md bg-black text-white"
+                >
                   Edit
-                </button>
-                <button className="p-3 rounded-md bg-black text-white">
+                </Link>
+                <button
+                  onClick={() => handleDelete(id)}
+                  className="p-3 rounded-md bg-black text-white"
+                >
                   Delete
                 </button>
               </td>
