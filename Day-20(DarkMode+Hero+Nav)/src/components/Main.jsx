@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GoLink } from "react-icons/go";
 import { FaGithub } from "react-icons/fa";
+import { AnimatePresence, motion } from "framer-motion";
 const Main = () => {
   const myProjects = [
     {
@@ -36,17 +37,17 @@ const Main = () => {
     {
       projectTitle: "node project",
       category: ["node"],
-      imgPath: "f",
+      imgPath: "g",
     },
     {
       projectTitle: "node project",
       category: ["node"],
-      imgPath: "g",
+      imgPath: "h",
     },
     {
       projectTitle: "JavaScript project",
       category: ["js"],
-      imgPath: "h",
+      imgPath: "i",
     },
   ];
   const handleClick = (buttonCategory) => {
@@ -62,8 +63,8 @@ const Main = () => {
   const [currentactive, setcurrentActive] = useState("all");
   const [arr, setarr] = useState(myProjects);
   return (
-    <main className="flex w-full  pt-32 border border-green-400 gap-5 items-center justify-center">
-      <section className="flex-grow-1  flex-col gap-2 h-full w-[40%] flex items-center justify-center  border border-red-500">
+    <main className="flex w-full h-full pt-32 border border-green-400 gap-5 items-center justify-center">
+      <section className="flex-grow-1 relative flex-col gap-2 w-[40%] flex items-center justify-center  border border-red-500">
         <button
           onClick={() => {
             setcurrentActive("all");
@@ -118,34 +119,40 @@ const Main = () => {
       </section>
 
       <section className="flex-grow-2 gap-10 flex-wrap w-full h-full flex items-center justify-center  border-red-500 border">
-        {arr.map((item) => {
-          return (
-            <article
-              key={item.imgPath}
-              className=" flex flex-col  w-[20rem] hover:border hover:rotate-1 transition-all duration-100 ease-linear bg-gradient-to-b from-gray-600  hover:border-blue-400 bg-gray-400 bg-opacity-25 px-5 py-2 rounded-lg items-center justify-center"
-            >
-              <img
-                className=""
-                src="https://images.pexels.com/photos/3752194/pexels-photo-3752194.jpeg?auto=compress&cs=tinysrgb&w=400"
-                alt=""
-              />
-              <div>
-                <h1>{item.projectTitle}</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Eius, deserunt.
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-5">
-                    <GoLink />
-                    <FaGithub />
+        <AnimatePresence>
+          {arr.map((item) => {
+            return (
+              <motion.article
+                layout
+                initial={{ transform: "scale(0)" }}
+                animate={{ transform: "scale(1)" }}
+                transition={{ type: "spring", damping: 8, stiffness: 50 }}
+                key={item.imgPath}
+                className=" flex flex-col  w-[20rem] hover:border hover:rotate-1 transition-all duration-100 ease-linear bg-gradient-to-b from-gray-600  hover:border-blue-400 bg-gray-400 bg-opacity-25 px-5 py-2 rounded-lg items-center justify-center"
+              >
+                <img
+                  className=""
+                  src="https://images.pexels.com/photos/3752194/pexels-photo-3752194.jpeg?auto=compress&cs=tinysrgb&w=400"
+                  alt=""
+                />
+                <div>
+                  <h1>{item.projectTitle}</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Eius, deserunt.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-5">
+                      <GoLink />
+                      <FaGithub />
+                    </div>
+                    <a href="#">More→</a>
                   </div>
-                  <a href="#">More→</a>
                 </div>
-              </div>
-            </article>
-          );
-        })}
+              </motion.article>
+            );
+          })}
+        </AnimatePresence>
       </section>
     </main>
   );
