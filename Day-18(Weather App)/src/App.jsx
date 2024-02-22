@@ -8,7 +8,7 @@ const App = () => {
   useEffect(() => {
     const weather = async () => {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position.coords.latitude);
+        console.log(position);
         setLat(position.coords.latitude);
         setLon(position.coords.latitude);
         // const lat = position.coords.latitude;
