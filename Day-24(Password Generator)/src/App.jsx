@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import usePasswordGenerator from "./hooks/usePasswordGenerator";
 
 const App = () => {
   const [length, setLength] = useState(4);
+  const [copied, setCopied] = useState(false);
 
   const [checkboxData, setCheckboxData] = useState([
     { title: "Include Uppercase Letters", state: false },
@@ -15,17 +17,29 @@ const App = () => {
     checkboxData[i].state = !checkboxData[i].state;
     setCheckboxData(updatedCheckboxData);
   };
+  const handleCopy = () => {
+    navigator.clipboard.writeText(password);
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+  };
+
+  const { password, errorMessage, generatePassword } = usePasswordGenerator();
   return (
     <div className="container ">
-      <div className="header">
-        <div className="title">//#endre</div>
-        <button className="button copyBtn" onClick={() => {}}>
-          Copy
-        </button>
-      </div>
+      {password && (
+        <div className="header">
+          <div className="title">{password}</div>
+          <button className="button copyBtn" onClick={handleCopy}>
+            Copy
+          </button>
+        </div>
+      )}
       <div className="charLength">
-        <span>
-          <label>Character Length</label>
+        <span className="text-white">
+          <label>Character Length: </label>
           <label>{length}</label>
         </span>
         <input
@@ -50,7 +64,10 @@ const App = () => {
           );
         })}
       </div>
-      <button className="generateBtn" onClick={() => {}}>
+      <button
+        className="generateBtn"
+        onClick={() => generatePassword(checkboxData, length)}
+      >
         Generate Password
       </button>
     </div>
