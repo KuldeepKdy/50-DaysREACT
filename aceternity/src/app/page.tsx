@@ -5,5 +5,5 @@ export default function Home() {
     <div>
       Ready to Goo!
     </div>
-  );
+  ); 
 }
