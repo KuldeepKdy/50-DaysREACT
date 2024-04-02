@@ -38,7 +38,7 @@ const TestimonialCards = () => {
     <div className="min-h-screen w-full dark:bg-black dark:bg-dot-white/[0.2] relative flex flex-col items-center justify-center overflow-hidden">
       <h2 className="w-full text-center">Hear our Harmony: Voices of sucess</h2>
       <div className="w-full justify-center">
-        <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-dot-white/[0.3] items-center justify-center relative overflow-hidden">
+        <div className=" rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-dot-white/[0.3] items-center justify-center relative overflow-hidden">
           <InfiniteMovingCards
             items={testimonials}
             direction="right"

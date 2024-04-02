@@ -20,7 +20,7 @@ const FeaturedCourses = () => {
   );
 
   return (
-    <div className="py-12 bg-gray-900">
+    <div className="py-12 bg-gray-900 ">
       <div className="text-center">
         <h2>Featured Courses</h2>
         <p>Learn With the Best</p>

@@ -52,7 +52,7 @@ const content = [
 ];
 const WhyChooseUs = () => {
   return (
-    <div>
+    <div className="w-full ">
       <StickyScroll content={content} />
     </div>
   );
